@@ -28,17 +28,6 @@ const parkingLog2 = {
     cars: [car3]
 }
 
-// Create a GET route that returns all parking lots /parkings
-
-// Create a GET route that returns a specific parking based on id
-
-// Create a GET route that recieves an id of a car and return on what parking lot it is parked /parkings/car/1 
-// Example output: 
-// {
-//     brand: 'BMW',
-//     parkingLot: 1
-// }
-
 const cars = [car1, car2, car3]
 
 

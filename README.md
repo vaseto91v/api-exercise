@@ -20,7 +20,9 @@ This API provides endpoints for managing parking lots and cars parked in those l
 
 **Endpoint:** `/parkings/car/{car_id}`
 **Method:** `GET`
-**Description:** This endpoint takes the ID of a car as input and returns the parking lot where the car is parked, along with the car's brand.
+**Description:** 
+
+
 
 #### Example Output:
 ```json

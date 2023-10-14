@@ -30,6 +30,7 @@ const parkingLog2 = {
 
 const cars = [car1, car2, car3]
 
+const parkingLots = [parkingLot1, parkingLog2];
 
 const server = express()
 
@@ -38,6 +39,8 @@ server.use(express.json())
 const PORT = 3000
 
 const carRouter = Router()
+
+const parkingLotRouter = Router()
 
 server.get('/', (req, res) => {
     res.send('Hi i am your api')
@@ -63,7 +66,46 @@ carRouter.get('/:id', (req, res) => {
     res.send(carToFind)
 })
 
+parkingLotRouter.get('/:id', (req, res) => {
+    const parkingLotId = parseInt(req.params.id);
+
+    const parkingLotToFind = parkingLots.find((lot) => lot.id === parkingLotId);
+
+    if (parkingLotToFind) {
+        res.send(parkingLotToFind);
+    } else {
+        res.status(404).send('Parking Lot not found.');
+    }
+});
+
+server.get('/parkingLotForCar/:carId', (req, res) => {
+    const carId = parseInt(req.params.carId);
+
+    let parkingLotWithCar = null;
+    let carBrand = null;
+
+    for (const parkingLot of parkingLots) {
+        const car = parkingLot.cars.find((x) => x.id === carId);
+        if (car) {
+            parkingLotWithCar = parkingLot;
+            carBrand = car.brand;
+            break;
+        }
+    }
+
+    if (parkingLotWithCar) {
+        res.send({
+            parkingLot: parkingLotWithCar,
+            carBrand: carBrand,
+        });
+    } else {
+        res.status(404).send('Car not found in any parking lot.');
+    }
+});
+
 server.use('/cars',carRouter)
+
+server.use('/parkingLots', parkingLotRouter);
 
 server.use((req, res) => {
     res.status(404).send('Page not found.');
@@ -72,3 +114,6 @@ server.use((req, res) => {
 server.listen(PORT, ()=> {
     console.log(`Server is listening on port ${PORT}`)
 })
+
+
+

@@ -1,0 +1,20 @@
+{
+    "cars": [
+      {
+        "id": 1,
+        "brand": "BMW",
+        "color": "Black"
+      },
+      {
+        "id": 2,
+        "brand": "AUDI",
+        "color": "Red"
+      },
+      {
+        "id": 3,
+        "brand": "Fiat",
+        "color": "Gray"
+      }
+    ]
+}
+  

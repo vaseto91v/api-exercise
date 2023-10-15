@@ -1,0 +1,25 @@
+{
+    "parkings": [
+        {
+            "id": 1,
+            "name": "Parking lot A",
+            "cars": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Parking lot B",
+            "cars": [
+                {
+                    "id": 3
+                }
+            ]
+        }
+    ]
+}
